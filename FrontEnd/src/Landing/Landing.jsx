@@ -95,7 +95,7 @@ class Landing extends Component {
                     <div className="text">All of the Courses in the same place! :)</div>
                     <div className="nav">
                         <a href="/login">Login</a>
-                        <a href="localhost:3000/register">Register</a>
+                        <a href="/register">Register</a>
                         <a href="/courses">Courses</a>
                     </div>
                     <div className="man"></div>

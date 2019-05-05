@@ -9,7 +9,9 @@ export default class App extends Component {
             <div id="root">
                 <Landing />
                 <Router>
-                    <Route></Route>
+                    <Route path="/login" Component={Login}></Route>
+                    <Route path="/register" Component={Register}></Route>
+                    <Route path="/courses" Component={Courses}></Route>
                 </Router>
             </div>
         );
