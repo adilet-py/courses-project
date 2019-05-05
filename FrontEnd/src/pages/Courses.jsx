@@ -5,7 +5,8 @@ class Courses extends Component {
    
     render() {
         return (
-            
+            <>
+            </>
         );
     }
 }
