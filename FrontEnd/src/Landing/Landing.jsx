@@ -23,8 +23,8 @@ let HeaderBar = styled.div`
         height: 100px;
         text-align: center;
         position: absolute;
-        top: 20%;
-        left: 8%;
+        top: 40%;
+        left: 5%;
         color: #fff;
         font-size: 40px;
     }
@@ -40,21 +40,12 @@ let HeaderBar = styled.div`
         }
     }
     .man {
-        width: 448px;
-        height: 652px;
-        background: url(./img/man.gif) no-repeat center top / cover;
+        width: 800px;
+        height: 645px;
+        background: url(./img/man.png) no-repeat center top / 100% 100%;
         position: absolute;
-        left: 700px;
-        top: 30px;
+        right: 5%;
         z-index: 31;
-    }
-    .some {
-        background: url(./img/some.gif) no-repeat center top / cover;
-        position: absolute;
-        top: 75px;
-        width: 100%;
-        height: 570px;
-        z-index: 30;
     }
 `  
 let Section1 = styled.div`
@@ -109,14 +100,13 @@ class Landing extends Component {
             <>
                 <HeaderBar>
                     <span>_meCourse</span>
-                    <div className="text">All of the Courses in the same place! :)</div>
+                    <div className="text">All Courses in the same place! :)</div>
                     <div className="nav">
                         <a href="/login">Login</a>
                         <a href="/register">Register</a>
                         <a href="/courses">Courses</a>
                     </div>
                     <div className="man"></div>
-                    <div className="some"></div>
                 </HeaderBar>
                 <Section1>
                     <h1>About Us</h1>
