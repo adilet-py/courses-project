@@ -60,6 +60,12 @@ let HeaderBar = styled.div`
 let Section1 = styled.div`
     width: 100%;
     height: 100vh;
+    text-align: center;
+    h1 {
+        color: #00aeef;
+        margin-top: 30px;
+        font-family: 'Rock Salt', sans-serif;
+    }
     .card {
         display: flex;
         justify-content: center;
@@ -72,12 +78,23 @@ let Section1 = styled.div`
             width: 500px;
             height: 100vh;
             border: 1px solid #000;
-            background: url(./img/course1.jpg) no-repeat center top / cover;
             flex-basis: 25%;
             transition: all 0.2s;
             :hover {
                 flex-basis: 100%;
             }
+        }
+        .first {
+            background: url(./img/course1.jpg) no-repeat center top / cover;            
+        }
+        .second {
+            background: url(./img/course5.jpg) no-repeat center top / cover;            
+        }
+        .third {
+            background: url(./img/course4.jpg) no-repeat center top / 100% 100%;            
+        }
+        .fourth {
+            background: url(./img/course2.jpg) no-repeat center top / cover;            
         }
     }
 `
@@ -102,11 +119,12 @@ class Landing extends Component {
                     <div className="some"></div>
                 </HeaderBar>
                 <Section1>
+                    <h1>About Us</h1>
                     <div className="card">
-                        <div className="img"></div>
-                        <div className="img"></div>
-                        <div className="img"></div>
-                        <div className="img"></div>
+                        <div className="img first"></div>
+                        <div className="img second"></div>
+                        <div className="img third"></div>
+                        <div className="img fourth"></div>
                     </div>
                 </Section1>
             </>
