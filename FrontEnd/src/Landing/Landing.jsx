@@ -12,7 +12,6 @@ let HeaderBar = styled.div`
     overflow: hidden;
     z-index: 29;
     .back {
-        background: rgba(0,0,0,0.3);
         width: 100%;
         height: 645px;
         display: flex;
@@ -77,9 +76,19 @@ let Section1 = styled.div`
             align-items: center;
             width: 500px;
             height: 100vh;
-            border: 1px solid #000;
             flex-basis: 25%;
             transition: all 0.2s;
+            div {
+                background: rgba(0,0,0,0.5);
+                color: white;
+                font-size: 34px;
+                font-family: 'Rock Salt', cursive;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             :hover {
                 flex-basis: 100%;
             }
@@ -122,10 +131,10 @@ class Landing extends Component {
                 <Section1>
                     <h1>About Us</h1>
                     <div className="card">
-                        <div className="img first"></div>
-                        <div className="img second"></div>
-                        <div className="img third"></div>
-                        <div className="img fourth"></div>
+                        <div className="img first"><div>Запишись</div></div>
+                        <div className="img second"><div>на пробный урок</div></div>
+                        <div className="img third"><div>не выходя</div></div>
+                        <div className="img fourth"><div>из дома!</div></div>
                     </div>
                 </Section1>
             </>
