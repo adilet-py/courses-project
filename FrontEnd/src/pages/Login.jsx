@@ -15,11 +15,11 @@ let LoginForm = styled.div`
     text-align: center;
     width: 60%;
     background: rgba(0,0,0,0.8);
-    color: #fff;
+    color: #00aeef;
     h2 {
         font-size: 60px;
         font-family: "Rock Salt", cursive;
-        margin: 10px 0 0 0;
+        margin: 0;
     }
     p {
         font-size: 18px;
@@ -37,6 +37,17 @@ let LoginForm = styled.div`
         margin-bottom: 15px;
         border: none;
         font-size: 20px;
+        background: #00aeef;
+        font-family: 'Rock-Salt', cursive;
+        cursor: pointer;
+    }
+    .links {
+        margin-bottom: 20px;
+        a {
+            text-decoration: none;
+            color: #00aeef;
+            text-decoration: underline;
+        }
     }
 `
 
@@ -60,6 +71,8 @@ class Login extends Component {
                             <input type="submit" className="submit" value="Sign in"/>
                         </div>
                     </form>
+                    <p className="links">Forgot your password? <a href="#">Click Here!</a></p>
+                    <p className="links">Don't have an account? <a href="/register">Sign Up Now!</a></p>
                 </LoginForm>
             </Background>
         );
