@@ -4,13 +4,22 @@ import styled from "styled-components";
 let HeaderBar = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-    background: url(./img/banner.gif) no-repeat center top / cover;
+    background: #151f51;
     height: 645px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     overflow: hidden;
     z-index: 29;
+    .back {
+        background: rgba(0,0,0,0.3);
+        width: 100%;
+        height: 645px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        overflow: hidden;
+    }
     span {
         font-family: 'Akronim', sans-serif;
         font-size: 82px;
@@ -53,7 +62,7 @@ let Section1 = styled.div`
     height: 100vh;
     text-align: center;
     h1 {
-        color: #00aeef;
+        color: #151f51;
         margin-top: 30px;
         font-family: 'Rock Salt', sans-serif;
     }
@@ -99,14 +108,16 @@ class Landing extends Component {
         return (
             <>
                 <HeaderBar>
-                    <span>_meCourse</span>
-                    <div className="text">All Courses in the same place! :)</div>
-                    <div className="nav">
-                        <a href="/login">Login</a>
-                        <a href="/register">Register</a>
-                        <a href="/courses">Courses</a>
+                    <div className="back">
+                        <span>_meCourse</span>
+                        <div className="text">All Courses in the same place! :)</div>
+                        <div className="nav">
+                            <a href="/login">Login</a>
+                            <a href="/register">Register</a>
+                            <a href="/courses">Courses</a>
+                        </div>
+                        <div className="man"></div>
                     </div>
-                    <div className="man"></div>
                 </HeaderBar>
                 <Section1>
                     <h1>About Us</h1>
