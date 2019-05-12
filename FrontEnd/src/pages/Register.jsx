@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import api from "../config/api";
+import ls from "local-storage";
 
 let Background = styled.div`
     width: 100%;
@@ -59,20 +61,48 @@ let RegisterForm = styled.div`
 
 class Register extends Component {
     state = {
+        company_name: '',
         email: '',
         password: '',
         err: false
     };
    
+    bind = (field, e) => {
+        this.setState({
+            [field]: e.target.value
+        });
+    };
+    register = async (e) => {
+        e.preventDefault();
+        try {
+            let response = await api.post('user/register', {
+                company_name: this.state.first_name,
+                email: this.state.email,
+                password: this.state.password
+            });
+            ls.set('accessToken', response.data.token);
+            this.setState({
+                err: false
+            });
+
+        } catch(e) {
+            if(e.response.status === 400) {
+                this.setState({
+                    err: true,
+                    errMessage: e.response.data.message
+                });
+            }
+        }
+    };
     render() {
         return (
             <Background>
-                <RegisterForm>
+                <RegisterForm err={this.state.err}>
                     <h2>Sign Up</h2>
-                    <form onSubmit={(e) => this.login(e)}>
+                    <form onSubmit={(e) => this.register(e)}>
                         <div>
                             <p>Company's name:</p>
-                            <input type="text" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.email} required/>
+                            <input type="text" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.company_name} required/>
                         </div>
                         <div>
                             <p>E-Mail:</p>

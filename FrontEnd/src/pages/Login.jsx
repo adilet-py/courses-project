@@ -93,7 +93,7 @@ class Login extends Component {
     render() {
         return (
             <Background>
-                <LoginForm>
+                <LoginForm err={this.state.err}>
                     <h2>Sign In</h2>
                     <form onSubmit={(e) => this.login(e)}>
                         <div>
