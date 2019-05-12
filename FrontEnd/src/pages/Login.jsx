@@ -26,6 +26,12 @@ let LoginForm = styled.div`
         font-family: 'Rock-Salt', cursive;
         margin: 0;
     }
+    input {
+        ${props => !!props.err && `
+                border: 1px solid red;
+        `
+        }
+    }
     .forms {
         height: 25px;
         padding: 5px;
@@ -52,20 +58,49 @@ let LoginForm = styled.div`
 `
 
 class Login extends Component {
+    state = {
+        email: '',
+        password: '',
+        err: false
+    };
+    
+    bind = (field, e) => {
+        this.setState({
+            [field]: e.target.value
+        })
+    };
+
+    login = async (e) => {
+        e.preventDefault();
+        try {
+            let response = await api.post('user/login', {
+                email: this.state.email,
+                password: this.state.password
+            });
+            ls.set('accessToken', response.data.token);
+            this.setState({
+                err: false
+            });
+        } catch(e) {
+            this.setState({
+                err: true
+            });
+        }
+    };
    
     render() {
         return (
             <Background>
                 <LoginForm>
                     <h2>Sign In</h2>
-                    <form action="">
+                    <form onSubmit={(e) => this.login(e)}>
                         <div>
                             <p>E-Mail:</p>
-                            <input type="email" className="forms" required/>
+                            <input type="email" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.email} required/>
                         </div>
                         <div>
                             <p>Password:</p>
-                            <input type="password" className="forms" required/>
+                            <input type="password" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.password} required/>
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign in"/>
