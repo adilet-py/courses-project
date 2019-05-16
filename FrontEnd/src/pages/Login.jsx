@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import api from "../config/api";
+import ls from "local-storage";
 
 let Background = styled.div`
     width: 100%;
@@ -91,7 +93,7 @@ class Login extends Component {
     render() {
         return (
             <Background>
-                <LoginForm>
+                <LoginForm err={this.state.err}>
                     <h2>Sign In</h2>
                     <form onSubmit={(e) => this.login(e)}>
                         <div>
