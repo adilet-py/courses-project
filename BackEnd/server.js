@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to Dev chat application."});
 });
 
-require('./app/routes/user')(app);
-require('./app/routes/chat')(app);
+// require('./app/routes/user')(app);
+// require('./app/routes/chat')(app);
 
 // listen for requests
 app.listen(3000, () => {
