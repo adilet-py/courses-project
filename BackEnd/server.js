@@ -32,12 +32,11 @@ mongoose.connect(dbConfig.url, {
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Dev chat application."});
+    res.json({"message": "Welcome to Courses application."});
 });
 
-// require('./app/routes/user')(app);
-// require('./app/routes/chat')(app);
-
+require('./app/routers/company')(app);
+ 
 // listen for requests
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
