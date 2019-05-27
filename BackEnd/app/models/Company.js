@@ -16,6 +16,13 @@ const CompanySchema = mongoose.Schema({
     },
     profile_image: String,
     phone: String,
+    courses: [
+        {
+            course_name: String,
+            description: String,
+            fare: String
+        }
+    ],
     reset_password_token: {
         type: String
     },
