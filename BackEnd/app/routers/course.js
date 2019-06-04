@@ -1,10 +1,11 @@
-    module.exports = (app) => {
-        let courseController = require('../controllers/courseController');
-    
-    /**
-     * Course create
-     */
+module.exports = (app) => {
+    let courseController = require('../controllers/courseController');
+    let auth = require('../middleware/auth');
 
-    app.post('/course/create', courseController.create)
+/**
+ * Course create
+ */
 
-    }
+app.post('/course/create', auth.checkToken, courseController.create)
+
+}
