@@ -13,12 +13,12 @@ export default class App extends Component {
         return (
             <div id="root">
                 <Router>
-                    <Route path="/main" component={Landing}></Route>
-                    <Route path="/login" component={Login}></Route>
-                    <Route path="/register" component={Register}></Route>
-                    <Route path="/courses" component={Courses}></Route>
-                    <Route path="/cabinet" component={Cabinet}></Route>
-                    <Route path="/course/:id" component={Course}></Route>
+                    <Route path="/main" component={Landing}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
+                    <Route path="/courses" component={Courses}/>
+                    <Route path="/cabinet" component={Cabinet}/>
+                    <Route path="/course/:id" component={Course}/>
                 </Router>
             </div>
         );
