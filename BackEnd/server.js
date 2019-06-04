@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
 });
 
 require('./app/routers/company')(app);
+require('./app/routers/course')(app);
  
 // listen for requests
 app.listen(3000, () => {
