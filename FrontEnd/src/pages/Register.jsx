@@ -25,7 +25,7 @@ let RegisterForm = styled.div`
     }
     p {
         font-size: 18px;
-        font-family: 'Rock-Salt', cursive;
+        font-family: 'Rock Salt', cursive;
         margin: 0;
     }
     input {
@@ -46,7 +46,7 @@ let RegisterForm = styled.div`
         border: none;
         font-size: 20px;
         background: #00aeef;
-        font-family: 'Rock-Salt', cursive;
+        font-family: 'Rock Salt', cursive;
         cursor: pointer;
     }
     .links {
