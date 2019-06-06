@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const path = require('path');
 const hbs = require('nodemailer-express-handlebars');
 const nodemailer = require('nodemailer');
+const mongoose = require('mongoose');
 
 
 let email = process.env.MAILER_EMAIL_ID || '';
@@ -48,6 +49,7 @@ exports.register = (req, res) => {
     }
 
     const company = new Company({
+        _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         password: req.body.password,
         company_name:req.body.company_name
