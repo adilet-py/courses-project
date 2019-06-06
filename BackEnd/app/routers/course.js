@@ -4,7 +4,6 @@
     /**
      * Course create
      */
-
     app.post('/course/create', courseController.create)
 
     }

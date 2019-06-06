@@ -3,17 +3,17 @@ module.exports = (app) => {
     let auth = require('../middleware/auth');
 
     /**
-     * User registration
+     * Company registration
      */
     app.post('/company/register', companyController.register);
 
     /**
-     * User authorization
+     * Company authorization
      */
     app.post('/company/login', companyController.login);
 
     /**
-     * User forgot password
+     * Company forgot password
      */
     app.post('/company/forgot-password', companyController.forgot_password);
 
