@@ -14,6 +14,7 @@ exports.checkToken = (req, res, next) => {
                     message: 'Token is invalid'
                 });
             } else {
+                console.log(decoded);
                 req.companyId = decoded.companyId;
                 next();
             }
