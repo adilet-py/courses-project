@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import api from "../config/api";
-import ls from "local-storage";
 
 let Background = styled.div`
     width: 100%;
