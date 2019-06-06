@@ -25,7 +25,7 @@ let RegisterForm = styled.div`
     }
     p {
         font-size: 18px;
-        font-family: 'Rock-Salt', cursive;
+        font-family: 'Rock Salt', cursive;
         margin: 0;
     }
     input {
@@ -46,7 +46,7 @@ let RegisterForm = styled.div`
         border: none;
         font-size: 20px;
         background: #00aeef;
-        font-family: 'Rock-Salt', cursive;
+        font-family: 'Rock Salt', cursive;
         cursor: pointer;
     }
     .links {
@@ -75,8 +75,8 @@ class Register extends Component {
     register = async (e) => {
         e.preventDefault();
         try {
-            let response = await api.post('user/register', {
-                company_name: this.state.first_name,
+            let response = await api.post('company/register', {
+                company_name: this.state.company_name,
                 email: this.state.email,
                 password: this.state.password
             });
@@ -102,7 +102,7 @@ class Register extends Component {
                     <form onSubmit={(e) => this.register(e)}>
                         <div>
                             <p>Company's name:</p>
-                            <input type="text" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.company_name} required/>
+                            <input type="text" className="forms" onChange={(e) => {this.bind('company_name', e)}} value={this.state.company_name} required/>
                         </div>
                         <div>
                             <p>E-Mail:</p>
@@ -110,11 +110,11 @@ class Register extends Component {
                         </div>
                         <div>
                             <p>Password:</p>
-                            <input type="password" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.password} required/>
+                            <input type="password" className="forms" onChange={(e) => {this.bind('password', e)}} value={this.state.password} required/>
                         </div>
                         <div>
                             <p>Confirm your password:</p>
-                            <input type="password" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.password} required/>
+                            <input type="password" className="forms" value={this.state.password} required/>
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign Up"/>

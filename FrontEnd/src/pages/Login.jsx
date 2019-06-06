@@ -25,7 +25,7 @@ let LoginForm = styled.div`
     }
     p {
         font-size: 18px;
-        font-family: 'Rock-Salt', cursive;
+        font-family: 'Rock Salt', cursive;
         margin: 0;
     }
     input {
@@ -43,10 +43,10 @@ let LoginForm = styled.div`
     .submit {
         height: 35px;
         margin-bottom: 15px;
-        border: none;
-        font-size: 20px;
+        border: none;   
         background: #00aeef;
-        font-family: 'Rock-Salt', cursive;
+        font-size: 15px;
+        font-family: 'Rock Salt', cursive;
         cursor: pointer;
     }
     .links {
@@ -75,7 +75,7 @@ class Login extends Component {
     login = async (e) => {
         e.preventDefault();
         try {
-            let response = await api.post('user/login', {
+            let response = await api.post('company/login', {
                 email: this.state.email,
                 password: this.state.password
             });
@@ -102,7 +102,7 @@ class Login extends Component {
                         </div>
                         <div>
                             <p>Password:</p>
-                            <input type="password" className="forms" onChange={(e) => {this.bind('email', e)}} value={this.state.password} required/>
+                            <input type="password" className="forms" onChange={(e) => {this.bind('password', e)}} value={this.state.password} required/>
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign in"/>

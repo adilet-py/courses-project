@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const key = require('../../config/key.conf');
 
 const CompanySchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     company_name: String,
     email: {
         type: String,
@@ -16,6 +17,10 @@ const CompanySchema = mongoose.Schema({
     },
     profile_image: String,
     phone: String,
+    courses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }],
     reset_password_token: {
         type: String
     },

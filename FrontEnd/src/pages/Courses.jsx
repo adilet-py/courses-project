@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
 let Background = styled.div`
     width: 100%;
     height: 100vh;
@@ -31,8 +30,7 @@ let Container = styled.div`
         font: 14px Arial, sans-serif;
         color: #00aeef;
     }
-    .menu > li {
-        border-right: 1px solid #fff; 
+    .menu > li { 
         position: relative;
     }
     .menu a {
@@ -42,7 +40,6 @@ let Container = styled.div`
     }
     .menu > li > a {
         padding: 10px 15px; 
-        border-right: 1px solid #d8d8d8; 
         position: relative; 
         z-index: 3; 
     }
