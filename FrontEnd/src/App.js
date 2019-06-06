@@ -17,7 +17,7 @@ export default class App extends Component {
                     <Route path="/register" component={Register}></Route>
                     <Route path="/courses" component={Courses}></Route>
                     <Route path="/cabinet" component={Cabinet}></Route>
-                    <Route path="/course/:id" component={Course}></Route>
+                    {/* <Route path="/course/:id" component={Course}></Route> */}
                 </Router>
             </div>
         );

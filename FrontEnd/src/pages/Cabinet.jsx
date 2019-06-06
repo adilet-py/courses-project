@@ -99,9 +99,6 @@ let Questions = styled.div`
         height: 200px;
     }
     
-
-
-
 `;
 
 class Cabinet extends Component {
