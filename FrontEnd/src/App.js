@@ -3,6 +3,7 @@ import Landing from "./Landing/Landing"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Courses from "./pages/Courses"
+import Course from "./pages/Course"
 import Cabinet from "./pages/Cabinet"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -17,7 +18,7 @@ export default class App extends Component {
                     <Route path="/register" component={Register}></Route>
                     <Route path="/courses" component={Courses}></Route>
                     <Route path="/cabinet" component={Cabinet}></Route>
-                    <Route path="/course/:id" component={Course}></Route>
+                    <Route path="/course/:id?" component={Course}></Route>
                 </Router>
             </div>
         );
