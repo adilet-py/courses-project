@@ -132,7 +132,7 @@ class ForUser extends Component {
                         </div>
                         <div className="form-div">
                             <p>Time:</p>
-                            <Select className="select" onChange={(e) => {this.bind('time', e)}} options={times} />
+                            <Select className="select" options={times} />
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign in"/>

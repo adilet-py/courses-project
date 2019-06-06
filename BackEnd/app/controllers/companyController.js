@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Company = require('../models/Company');
+const Course = require('../models/Course');
 const async = require('async');
 const crypto = require('crypto');
 const path = require('path');
@@ -148,19 +149,23 @@ exports.forgot_password = function(req, res) {
 };
 
 exports.me = (req, res) => {
-    Company.findById(req.companyId).populate('courses').exec(function(err, company) {
+    Company.findById(req.companyId).exec(function(err, company) {
         if (company) {
-            console.log('Company', company);
-            res.send({
-                me: {
-                    id: company.id,
-                    profile_image: company.profile_image || '',
-                    phone: company.phone || '',
-                    company_name: company.company_name || '',
-                    email: company.email || '',
-                    courses: company.courses
-                }
+            Course.find({
+                company: req.companyId
+            }).then(data => {
+                res.send({
+                    me: {
+                        id: company.id,
+                        profile_image: company.profile_image || '',
+                        phone: company.phone || '',
+                        company_name: company.company_name || '',
+                        email: company.email || '',
+                        courses: data
+                    }
+                })
             })
+
         } else {
             res.status(400).send({
                 message: 'Company not found'
