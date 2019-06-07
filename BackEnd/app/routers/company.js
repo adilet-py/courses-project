@@ -22,6 +22,10 @@ module.exports = (app) => {
      */
     app.get('/company/me', auth.checkToken, companyController.me);
 
+    /**
+     * Get companies
+     */
+    app.get('/company/all', companyController.all);
 
 
 };

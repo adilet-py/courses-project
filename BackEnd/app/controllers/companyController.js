@@ -53,7 +53,7 @@ exports.register = (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         password: req.body.password,
-        company_name:req.body.company_name
+        company_name: req.body.company_name
     });
 
     company.save().then(data => {
@@ -173,4 +173,13 @@ exports.me = (req, res) => {
         }
     });
 };
+
+exports.all = (req, res) => {
+    Company.find().then(data => {
+        Course.find({company: data.company_name}).then(courses => {
+            data[0].courses.push(courses);
+            res.send(data)
+        })
+    })
+}
 
