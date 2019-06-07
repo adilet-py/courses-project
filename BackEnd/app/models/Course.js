@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Company = require('./Company');
 
 const CourseSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     course_name: {
         type:String,
         unique:true,
@@ -10,10 +9,7 @@ const CourseSchema = mongoose.Schema({
     },
     fare: String,
     description: String,
-    company: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Company'
-    }
+    company: String
 }, {
     timestamps: true
 });

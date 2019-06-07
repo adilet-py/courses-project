@@ -105,12 +105,20 @@ let Questions = styled.div`
 
 class Cabinet extends Component {
     state = {
+        company_name: '',
         course_name: '',
         fare: '',
         description: '',
         err: false,
     };
-   
+
+    componentWillMount() {
+        api.get('company/me')
+            .then(response => {
+                this.setState(response.data.me);
+            });
+    }
+
     bind = (field, e) => {
         this.setState({
             [field]: e.target.value
@@ -123,7 +131,8 @@ class Cabinet extends Component {
             let response = await api.post('/course/create', {
                 course_name: this.state.course_name,
                 fare: this.state.fare,
-                description: this.state.description
+                description: this.state.description,
+                company: this.state.company_name
             });
             this.setState({
                 err: false
@@ -136,6 +145,7 @@ class Cabinet extends Component {
     };
 
     render() {
+        console.log(this.state.company_name)
         return (
             <Background>
             <Questions>
