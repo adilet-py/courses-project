@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Company = require('../models/Company');
+const Course = require('../models/Course');
 const async = require('async');
 const crypto = require('crypto');
 const path = require('path');
@@ -52,7 +53,7 @@ exports.register = (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         password: req.body.password,
-        company_name:req.body.company_name
+        company_name: req.body.company_name
     });
 
     company.save().then(data => {
@@ -148,19 +149,23 @@ exports.forgot_password = function(req, res) {
 };
 
 exports.me = (req, res) => {
-    Company.findById(req.companyId).populate('courses').exec(function(err, company) {
+    Company.findById(req.companyId).exec(function(err, company) {
         if (company) {
-            console.log('Company', company);
-            res.send({
-                me: {
-                    id: company.id,
-                    profile_image: company.profile_image || '',
-                    phone: company.phone || '',
-                    company_name: company.company_name || '',
-                    email: company.email || '',
-                    courses: company.courses
-                }
+            Course.find({
+                company: req.companyId
+            }).then(data => {
+                res.send({
+                    me: {
+                        id: company.id,
+                        profile_image: company.profile_image || '',
+                        phone: company.phone || '',
+                        company_name: company.company_name || '',
+                        email: company.email || '',
+                        courses: data
+                    }
+                })
             })
+
         } else {
             res.status(400).send({
                 message: 'Company not found'
@@ -168,4 +173,13 @@ exports.me = (req, res) => {
         }
     });
 };
+
+exports.all = (req, res) => {
+    Company.find().then(data => {
+        Course.find({company: data.company_name}).then(courses => {
+            data[0].courses.push(courses);
+            res.send(data)
+        })
+    })
+}
 

@@ -83,7 +83,7 @@ class ForUser extends Component {
     signIn = async (e) => {
         e.preventDefault();
         try {
-            let response = await api.post('company/users', {
+            let response = await api.post('user/create', {
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 phone: this.state.phone,
@@ -120,11 +120,11 @@ class ForUser extends Component {
                     <form onSubmit={(e) => this.signIn(e)}>
                         <div className="form-div">
                             <p>First name:</p>
-                            <input type="text" className="forms" onChange={(e) => {this.bind('email', e)}} required/>
+                            <input type="text" className="forms" onChange={(e) => {this.bind('first_name', e)}} required/>
                         </div>
                         <div className="form-div">
                             <p>Last name:</p>
-                            <input type="text" className="forms" onChange={(e) => {this.bind('email', e)}} required/>
+                            <input type="text" className="forms" onChange={(e) => {this.bind('last_name', e)}} required/>
                         </div>
                         <div className="form-div">
                             <p>Phone:</p>

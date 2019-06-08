@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Course = require('./Course');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const key = require('../../config/key.conf');
@@ -18,12 +17,10 @@ const CompanySchema = mongoose.Schema({
     },
     profile_image: String,
     phone: String,
-    courses: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Course'
-        }
-    ],
+    courses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }],
     reset_password_token: {
         type: String
     },
@@ -61,5 +58,7 @@ CompanySchema.pre('save', function (next) {
         next();
     });
 });
+
+
 
 module.exports = mongoose.model('Company', CompanySchema);

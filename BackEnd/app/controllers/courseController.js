@@ -16,11 +16,10 @@ exports.create = (req, res) => {
     }
 
     const course = new Course({
-        _id: new mongoose.Types.ObjectId(),
         course_name: req.body.course_name,
         fare: req.body.fare,
         description: req.body.description,
-        company: req.companyId
+        company: req.body.company
     });
 
     course.save().then(data => {
