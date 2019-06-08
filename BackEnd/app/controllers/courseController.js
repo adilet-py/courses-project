@@ -19,9 +19,8 @@ exports.create = (req, res) => {
         course_name: req.body.course_name,
         fare: req.body.fare,
         description: req.body.description,
-        company:req.companyId
+        company: req.companyId
     });
-
     course.save().then(data => {
         res.send(data);
     }).catch(err => {

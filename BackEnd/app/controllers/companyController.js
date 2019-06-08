@@ -147,36 +147,39 @@ exports.forgot_password = function(req, res) {
     });
 };
 
-exports.me = async (req, res) => {
+exports.me =  async (req, res) => {
     let company = await Company.findById(req.companyId);
     let courses = await Course.find({
-        company:company.id
-    });
+        company: company.id
+    })
+    console.log(courses);
     res.send({
         me: {
             company_name:company.company_name,
-            email:company.email,
-            id:company._id,
-            courses:courses
+            email: company.email,
+            id: company._id,
+            courses: courses
         }
-    });
+    })
 };
-
 
 exports.all = async (req, res) => {
     let companies = await Company.find();
     companies = await Promise.all(
-        companies.map(async(company) =>{
+        companies.map(async (company) => {
             let courses = await Course.find({
-                company:company.id
-            });
+                company: company.id
+            })
             return {
-               company_name:company.company_name,
-               email:company.email,
-               id:company._id,
-               courses:courses
-            };
+                company_name:company.company_name,
+                email: company.email,
+                id: company._id,
+                courses: courses
+            }
         })
-    )
+    );
+    res.send({
+        companies: companies
+    })
 }
 
