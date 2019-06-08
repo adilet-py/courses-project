@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import api from "../config/api";
+import swal from 'sweetalert';
 
 let Background = styled.div`
     width: 100%;
@@ -97,8 +98,9 @@ let Questions = styled.div`
         width: 200px;
         height: 200px;
     }
-    
 `;
+    
+
 
 class Cabinet extends Component {
     state = {
@@ -125,6 +127,8 @@ class Cabinet extends Component {
             this.setState({
                 err: false
             });
+
+
         } catch(e) {
             this.setState({
                 err: true
@@ -132,15 +136,16 @@ class Cabinet extends Component {
         }
     };
 
+
     render() {
         return (
             <Background>
             <Questions>
                 <div className="section">
                       <h1>Add The Course</h1>
-                      <form  onSubmit={(e) => this.course(e)}>
+                      <form onSubmit={(e) => this.course(e)}>
                         <div className="header"><input className="add" placeholder="Course name" type="text" onChange={(e) => {this.bind('course_name', e)}} required ></input>
-                            <input className="addButton" type="submit" value="ADD"/>
+                            <input className="addButton"type="submit" value="ADD"/>
                         </div>
                         <h3>Fare</h3>
                         <div>
