@@ -14,23 +14,60 @@ let Background = styled.div`
 let RegisterForm = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-    text-align: center;
-    width: 60%;
+    width: 40%;
+    height:90%;
     background: rgba(0,0,0,0.8);
     color: #00aeef;
     h2 {
+        text-align:center;
         font-size: 60px;
         font-family: "Rock Salt", cursive;
         margin: 0;
     }
+    
+    ul {
+
+    }
+
+    li {
+        position: relative;
+        display: block;
+        margin-bottom: 5px;
+        padding: 10px;
+        text-transform: uppercase;
+        a {
+            color:#00aeef;
+            text-decoration: none;
+            font-family: "Rock Salt";
+        }
+    }      
+
+    .cabinet {
+        text-align:center;
+    }
+
+    button {
+        height: 45px;
+        margin-bottom: 15px;
+        border: none;   
+        background: #00aeef;
+        font-size: 15px;
+        font-family: 'Rock Salt', cursive;
+        cursor: pointer;
+        
+        a {
+            text-decoration:none;
+            color:black;
+        }
+
+    }
+
 
 `
 
 class CourseName extends Component {
     state = {
-      company_name:'',
-      course_name:[],
-      err:false
+      courses:[]
     };
    
     componentWillMount() {
@@ -42,20 +79,24 @@ class CourseName extends Component {
     }
     
     render() {
-        let {company_name, course_name} = this.state;
+        let {courses,company_name} = this.state;
         return (
             <Background>
                 <RegisterForm>
                     <h2>{company_name}</h2>
+                    <ul>
+                        {
+                            courses.map(course => {
+                                return(
+                                            <li><a href="#">{course.course_name}</a></li>
+                                )
+                            })
+                        }
+                    </ul>
+                       
+                       <div className="cabinet"><button ><a href="/cabinet">ADD Course</a></button></div>
                 
-                        <ul>{course_name.map(course_name => (
-                        <li key={course_name.id}>
-                            course:{course_name.course_name}
-                        </li>
-                    ))}</ul>
-
-                    
-                    <h3>asda</h3>                    
+       
                       
 
                 </RegisterForm>
