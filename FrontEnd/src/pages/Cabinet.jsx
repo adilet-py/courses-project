@@ -131,7 +131,6 @@ class Cabinet extends Component {
                 course_name: this.state.course_name,
                 fare: this.state.fare,
                 description: this.state.description,
-                company: this.state.company_name
             });
             this.setState({
                 err: false
