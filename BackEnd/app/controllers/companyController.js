@@ -50,7 +50,6 @@ exports.register = (req, res) => {
     }
 
     const company = new Company({
-        _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         password: req.body.password,
         company_name: req.body.company_name
@@ -148,38 +147,39 @@ exports.forgot_password = function(req, res) {
     });
 };
 
-exports.me = (req, res) => {
-    Company.findById(req.companyId).exec(function(err, company) {
-        if (company) {
-            Course.find({
-                company: req.companyId
-            }).then(data => {
-                res.send({
-                    me: {
-                        id: company.id,
-                        profile_image: company.profile_image || '',
-                        phone: company.phone || '',
-                        company_name: company.company_name || '',
-                        email: company.email || '',
-                        courses: data
-                    }
-                })
-            })
-
-        } else {
-            res.status(400).send({
-                message: 'Company not found'
-            });
+exports.me =  async (req, res) => {
+    let company = await Company.findById(req.companyId);
+    let courses = await Course.find({
+        company: company.id
+    })
+    console.log(courses);
+    res.send({
+        me: {
+            company_name:company.company_name,
+            email: company.email,
+            id: company._id,
+            courses: courses
         }
-    });
+    })
 };
 
-exports.all = (req, res) => {
-    Company.find().then(data => {
-        Course.find({company: data.company_name}).then(courses => {
-            data[0].courses.push(courses);
-            res.send(data)
+exports.all = async (req, res) => {
+    let companies = await Company.find();
+    companies = await Promise.all(
+        companies.map(async (company) => {
+            let courses = await Course.find({
+                company: company.id
+            })
+            return {
+                company_name:company.company_name,
+                email: company.email,
+                id: company._id,
+                courses: courses
+            }
         })
+    );
+    res.send({
+        companies: companies
     })
 }
 

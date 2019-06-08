@@ -131,8 +131,7 @@ class Cabinet extends Component {
             let response = await api.post('/course/create', {
                 course_name: this.state.course_name,
                 fare: this.state.fare,
-                description: this.state.description,
-                company: this.state.company_name
+                description: this.state.description
             });
             this.setState({
                 err: false
