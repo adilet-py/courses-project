@@ -6,6 +6,8 @@ import Courses from "./pages/Courses"
 import ForUser from "./pages/ForUser"
 import Cabinet from "./pages/Cabinet"
 import Course from "./pages/Course"
+import CourseName from "./pages/CourseName"
+
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default class App extends Component {
@@ -20,6 +22,7 @@ export default class App extends Component {
                     <Route path="/cabinet" component={Cabinet}/>
                     <Route path="/foruser/:id?" component={ForUser}/>
                     <Route path="/course/:id?" component={Course}/>
+                    <Route path="/CourseName/:id?" component={CourseName}/>
                 </Router>
         );
     }
