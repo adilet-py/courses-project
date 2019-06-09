@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import api from "../config/api";
 
 let Background = styled.div`
     width: 100%;
@@ -63,37 +64,22 @@ let Container = styled.div`
         display: block;
     }
 `
-
 class Courses extends Component {
     state = {
-        companies: [
-            {
-                name: "Eklektika",
-                courses: [
-                    "English",
-                    "Russian",
-                    "Korean"
-                ]
-            },
-            {
-                name: "IT Academy",
-                courses: [
-                    "Front-End",
-                    "Back-End"
-                ]
-            },
-            {
-                name: "Attractor",
-                courses: [
-                    "Front-End",
-                    "Back-End"
-                ]
-            }
-        ]
+        companies: []
     }
-   
+
+    componentWillMount() {
+        api.get('/company/all')
+        .then(response => {
+            console.log(response.data.companies)
+            this.setState(response.data);
+        });
+    }
+
     render() {
         let { companies } = this.state;
+        console.log(companies)
         return (
             <Background>
                 <Container>
@@ -102,12 +88,12 @@ class Courses extends Component {
                         {
                             companies.map(company => {
                                 return(
-                                    <li><a href="#">{company.name}</a>
+                                    <li><a href="#">{company.company_name}</a>
                                         <ul>
                                             {
                                                 company.courses.map(course => {
                                                     return(
-                                                        <li><a href="#">{course}</a></li>
+                                                        <li><a href="#">{course.course_name}</a></li>
                                                     )
                                                 })
                                             }

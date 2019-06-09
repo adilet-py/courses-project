@@ -9,7 +9,10 @@ const CourseSchema = mongoose.Schema({
     },
     fare: String,
     description: String,
-    company: String
+    company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Company'
+    }
 }, {
     timestamps: true
 });
