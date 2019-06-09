@@ -78,6 +78,7 @@ class Courses extends Component {
     }
 
     render() {
+
         let { companies } = this.state;
         console.log(companies)
         return (
@@ -93,7 +94,7 @@ class Courses extends Component {
                                             {
                                                 company.courses.map(course => {
                                                     return(
-                                                        <li><a href="#">{course.course_name}</a></li>
+                                                        <li><a href={`/course/${course._id}`}>{course.course_name}</a></li>
                                                     )
                                                 })
                                             }

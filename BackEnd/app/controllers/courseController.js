@@ -27,3 +27,11 @@ exports.create = (req, res) => {
         res.status(500).send({message: err});
     });
 };
+
+exports.getCourse = (req, res) => {
+    Course.findById(req.params.id).then(data => {
+        res.send(data);
+    }).catch(err => {
+        res.status(500).send({message: err});
+    });
+};

@@ -10,7 +10,7 @@ let Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./img/back.jpg) no-repeat center top / cover;
+    background: url(/img/back.jpg) no-repeat center top / cover;
 `
 let Container = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
@@ -80,14 +80,21 @@ class ForUser extends Component {
         })
     };
 
+    handleChange = time => {
+        console.log(time);
+        this.setState({ time: time.value });
+    };
+
     signIn = async (e) => {
         e.preventDefault();
         try {
+            console.log(this.state.time);
             let response = await api.post('user/create', {
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 phone: this.state.phone,
-                time: this.state.time
+                time: this.state.time,
+                course: this.props.match.params.id
             });
             ls.set('accessToken', response.data.token);
             this.setState({
@@ -112,6 +119,8 @@ class ForUser extends Component {
             { value: '16:00', label: '16:00' },
             { value: '17:00', label: '17:00' },
             { value: '18:00', label: '18:00' },
+            { value: '19:00', label: '19:00' },
+            { value: '20:00', label: '20:00' },
         ];
         return(
             <Background>
@@ -132,7 +141,7 @@ class ForUser extends Component {
                         </div>
                         <div className="form-div">
                             <p>Time:</p>
-                            <Select className="select" options={times} />
+                            <Select className="select" options={times} onChange={(e) => {this.handleChange(e)}} />
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign in"/>
