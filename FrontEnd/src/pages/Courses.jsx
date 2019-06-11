@@ -84,12 +84,12 @@ class Courses extends Component {
             <Background>
                 <Container>
                     <h1>Companies...</h1>
-                    <ul className="menu">
+                    <ul >
                         {
                             companies.map(company => {
                                 return(
                                     <li><a href="#">{company.company_name}</a>
-                                        <ul>
+                                        <ul className="menu">
                                             {
                                                 company.courses.map(course => {
                                                     return(
