@@ -11,33 +11,24 @@ let HeaderBar = styled.div`
     flex-direction: row;
     overflow: hidden;
     z-index: 29;
-    .back {
+    .topnav {
         width: 100%;
-        height: 645px;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        overflow: hidden;
     }
     span {
         font-family: 'Akronim', sans-serif;
+        position: absolute;
+        left: 10%;
+        top: 20px;
         font-size: 82px;
         color: #fff;
-        margin-top: 20px;
-    }
-    .text {
-        font-family: 'Rock Salt', sans-serif;
-        width: 550px;
-        height: 100px;
-        text-align: center;
-        position: absolute;
-        top: 40%;
-        left: 5%;
-        color: #fff;
-        font-size: 40px;
+        cursor: pointer;
+        z-index: 40;
     }
     .nav {
-        margin: 20px 0 0 0;
+        display: inline-block;
+        float: right;
+        margin-right: 10%;
+        margin-top: 40px;
         z-index: 100;
         a {
             font-family: 'Rock Salt', sans-serif;
@@ -45,7 +36,24 @@ let HeaderBar = styled.div`
             text-decoration: none;
             color: #fff;
             margin-left: 30px;
+            :hover {
+                border-bottom: 3px solid yellow;
+            }
         }
+        .icon {
+                display: none;
+        }
+    }
+    .text {
+        font-family: 'Rock Salt', sans-serif;
+        width: 550px;
+        height: 100px;
+        text-align: center;
+        position: absolute;
+        top: 30%;
+        left: 7%;
+        color: #fff;
+        font-size: 50px;
     }
     .man {
         width: 800px;
@@ -54,6 +62,29 @@ let HeaderBar = styled.div`
         position: absolute;
         right: 5%;
         z-index: 31;
+    }
+    @media (max-width: 1100px) {
+        .nav {
+            margin: 20px 20px 0 0;
+        }
+        .nav a {
+            display: none;
+        }
+        .nav a.icon{
+            display: block;
+            float: right;
+            font-size: 20px;
+            z-index: 9999;
+        }
+        span {
+            font-size: 40px;
+        }
+        .topnav.responsive {
+            position: relative;
+            top: 50px;
+            left: -200px;
+        }
+        
     }
 `  
 let Section1 = styled.div`
@@ -117,16 +148,17 @@ class Landing extends Component {
         return (
             <>
                 <HeaderBar>
-                    <div className="back">
+                    <div className="topnav">
                         <span>_meCourse</span>
-                        <div className="text">All Courses in the same place! :)</div>
                         <div className="nav">
                             <a href="/login">Login</a>
                             <a href="/register">Register</a>
                             <a href="/courses">Courses</a>
+                            <a className="icon" href="#">&#9776;</a>
                         </div>
-                        <div className="man"></div>
                     </div>
+                    <div className="text">All Courses in the same place! :)</div>
+                    <div className="man"></div>
                 </HeaderBar>
                 <Section1>
                     <h1>About Us</h1>
