@@ -11,16 +11,18 @@ let Background = styled.div`
     background: url(./img/back.jpg) no-repeat center top / cover;
 `
 let Container = styled.div`
-    @import url('https://fonts.googleapis.com/css?family=Akronim');
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-    width: 80%;
-    height: 100vh;
-    background: red;
+    width: 60%;
+    height: 95%;
     margin: 0 auto;
     background: rgba(0,0,0,0.8);
-    color: #00aeef;
+    color: #fff;
     h1 {
         text-align: center;
+        font-family: 'Rock Salt', cursive;
+        font-size: 50px;
+        margin: 0;
     }
     .menu, .menu ul { 
         list-style: none;
@@ -29,14 +31,15 @@ let Container = styled.div`
     .menu {
         padding: 0 5px; 
         font: 14px Arial, sans-serif;
-        color: #00aeef;
+        color: #fff;
+        margin: 40px;
     }
     .menu > li { 
         position: relative;
     }
     .menu a {
         text-decoration: none; 
-        color: #00aeef;
+        color: #fff;
         display: block; 
     }
     .menu > li > a {
@@ -57,11 +60,37 @@ let Container = styled.div`
         padding: 5px 10px; 
     }
     .menu ul a:hover {
-        background: #008df2; 
-        color: #fff; 
+        background: grey; 
+        color: #000; 
     }
     .menu li:hover ul {
         display: block;
+    }
+    .company {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 25px;
+    }
+    .course {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 20px;
+    }
+    @media (max-width: 670px) {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        padding-top: 40px;
+        h1 {
+            font-size: 30px;
+        }
+        .company {
+            font-size: 20px;
+        }
+        .course {
+            font-size: 15px;
+        }
+        .menu {
+            margin: 20px;
+        }
     }
 `
 class Courses extends Component {
@@ -89,12 +118,12 @@ class Courses extends Component {
                         {
                             companies.map(company => {
                                 return(
-                                    <li><a href="#">{company.company_name}</a>
-                                        <ul className="menu">
+                                    <li><a className="company" href="#">{company.company_name}</a>
+                                        <ul>
                                             {
                                                 company.courses.map(course => {
                                                     return(
-                                                        <li><a href={`/course/${course._id}`}>{course.course_name}</a></li>
+                                                        <li><a className="course" href={`/course/${course._id}`}>{course.course_name}</a></li>
                                                     )
                                                 })
                                             }

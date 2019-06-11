@@ -16,12 +16,11 @@ let Container = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
     width: 80%;
-    height: 90vh;
     background: red;
     margin: 0 auto;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    color: #00aeef;
+    color: #fff;
     h2 {
         font-size: 40px;
         font-family: "Rock Salt", cursive;
@@ -32,6 +31,9 @@ let Container = styled.div`
         font-size: 18px;
         font-family: 'Rock-Salt', cursive;
         margin: 0;
+    }
+    form {
+        height: 100%;
     }
     .form-div {
         display: block;
@@ -52,17 +54,25 @@ let Container = styled.div`
         margin: 15px 0 15px 0;
     }
     .submit {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        margin-top: 30px;
         height: 35px;
-        border: none;
+        border: 1px solid grey;
+        border-radius: 25px;
         font-size: 15px;
-        background: #00aeef;
+        background: grey;
         font-family: 'Rock Salt', cursive;
         color: #000;
         cursor: pointer;
+    }
+    @media (max-width: 670px) {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        padding-top: 40px;
+        h2 {
+            font-size: 25px;
+            margin: 0 auto 20px;
+        }
     }
 `
 
@@ -143,7 +153,7 @@ class ForUser extends Component {
                             <p>Time:</p>
                             <Select className="select" options={times} onChange={(e) => {this.handleChange(e)}} />
                         </div>
-                        <div>
+                        <div className="form-div">
                             <input type="submit" className="submit" value="Sign in"/>
                         </div>
                     </form>
