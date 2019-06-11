@@ -66,7 +66,7 @@ class Register extends Component {
         password: '',
         err: false
     };
-   
+
     bind = (field, e) => {
         this.setState({
             [field]: e.target.value
