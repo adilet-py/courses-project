@@ -45,6 +45,7 @@ let Container = styled.div`
             padding: 5px;
             font-size: 20px;
             margin: 15px auto 15px;
+            color: #000;
         }
     }
     .forms {
