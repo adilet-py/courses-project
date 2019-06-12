@@ -9,7 +9,7 @@ let Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./img/back.jpg) no-repeat center top / cover;
+    background: url(/img/back.jpg) no-repeat center top / cover;
 `
 let RegisterForm = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
@@ -129,7 +129,7 @@ class Register extends Component {
                             <input type="submit" className="submit" value="Sign Up"/>
                         </div>
                     </form>
-                    <p className="links">Already have an account? <a href="/login">Sign In Now!</a></p>
+                    <p className="links">Already have an account? <a href="/company/login">Sign In Now!</a></p>
                 </RegisterForm>
             </Background>
         );

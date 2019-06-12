@@ -68,7 +68,7 @@ class Course extends Component {
                     <h1>{course_name}</h1>
                     <h2>Price: {fare}</h2>
                     <h2>Description: {description}</h2>
-                    <button><a href={`/foruser/${this.props.match.params.id}`}>Sign up for course</a></button>
+                    <button><a href={`/user/foruser/${this.props.match.params.id}`}>Sign up for course</a></button>
                 </Container>
             </Background>
         );

@@ -8,7 +8,7 @@ let Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./img/back.jpg) no-repeat center top / cover;
+    background: url(/img/back.jpg) no-repeat center top / cover;
 `
 let Container = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
@@ -123,7 +123,7 @@ class Courses extends Component {
                                             {
                                                 company.courses.map(course => {
                                                     return(
-                                                        <li><a className="course" href={`/course/${course._id}`}>{course.course_name}</a></li>
+                                                        <li><a className="course" href={`/user/course/${course._id}`}>{course.course_name}</a></li>
                                                     )
                                                 })
                                             }

@@ -9,7 +9,7 @@ let Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./img/back.jpg) no-repeat center top / cover;
+    background: url(/img/back.jpg) no-repeat center top / cover;
 `
 let LoginForm = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
@@ -122,8 +122,7 @@ class Login extends Component {
                             <input type="submit" className="submit" value="Sign in"/>
                         </div>
                     </form>
-                    <p className="links">Forgot your password? <a href="#">Click Here!</a></p>
-                    <p className="links">Don't have an account? <a href="/register">Sign Up Now!</a></p>
+                    <p className="links">Don't have an account? <a href="/company/register">Sign Up Now!</a></p>
                 </LoginForm>
             </Background>
         );

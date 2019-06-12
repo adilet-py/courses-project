@@ -9,7 +9,7 @@ let Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./img/back.jpg) no-repeat center top / cover;
+    background: url(/img/back.jpg) no-repeat center top / cover;
 `
 let RegisterForm = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
@@ -97,7 +97,7 @@ class CourseName extends Component {
                         }
                     </ul>
                     <div className="cabinet">
-                        <button><a href="/cabinet">ADD Course</a></button>
+                        <button><a href="/company/cabinet">ADD Course</a></button>
                     </div>
                 </RegisterForm>
             </Background>

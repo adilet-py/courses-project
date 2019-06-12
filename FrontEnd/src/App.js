@@ -16,13 +16,13 @@ export default class App extends Component {
         return (
                 <Router>
                     <Route path="/" exact component={Landing}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/register" component={Register}/>
-                    <Route path="/courses" component={Courses}/>
-                    <Route path="/cabinet" component={Cabinet}/>
-                    <Route path="/foruser/:id?" component={ForUser}/>
-                    <Route path="/course/:id?" component={Course}/>
-                    <Route path="/CourseName/:id?" component={CourseName}/>
+                    <Route path="/company/login" component={Login}/>
+                    <Route path="/company/register" component={Register}/>
+                    <Route path="/user/courses" component={Courses}/>
+                    <Route path="/company/cabinet" component={Cabinet}/>
+                    <Route path="/user/foruser/:id?" component={ForUser}/>
+                    <Route path="/user/course/:id?" component={Course}/>
+                    <Route path="/company/CourseName/:id?" component={CourseName}/>
                 </Router>
         );
     }
