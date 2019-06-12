@@ -5,7 +5,7 @@ let HeaderBar = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Akronim');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
     background: #151f51;
-    height: 645px;
+    height: 100vh;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -13,6 +13,7 @@ let HeaderBar = styled.div`
     z-index: 29;
     .topnav {
         width: 100%;
+        z-index: 9999;
     }
     span {
         font-family: 'Akronim', sans-serif;
@@ -29,7 +30,7 @@ let HeaderBar = styled.div`
         float: right;
         margin-right: 10%;
         margin-top: 40px;
-        z-index: 100;
+        z-index: 9999;
         a {
             font-family: 'Rock Salt', sans-serif;
             font-weight: 600;
@@ -56,14 +57,15 @@ let HeaderBar = styled.div`
         font-size: 50px;
     }
     .man {
-        width: 800px;
-        height: 645px;
+        width: 70%;
+        height: 90%;
         background: url(./img/man.png) no-repeat center top / 100% 100%;
         position: absolute;
         right: 5%;
-        z-index: 31;
+        bottom: 0;
     }
-    @media (max-width: 1100px) {
+    @media (max-width: 1010px) {
+        height: 55vh;
         .nav {
             margin: 20px 20px 0 0;
         }
@@ -74,20 +76,48 @@ let HeaderBar = styled.div`
             display: block;
             float: right;
             font-size: 20px;
-            z-index: 9999;
+            z-index: 1000;
         }
         span {
             font-size: 40px;
         }
-        .topnav.responsive {
-            position: relative;
-            top: 50px;
-            left: -200px;
+        .topnav {
+            width: 100%;
         }
-        
+        .nav.responsive {
+            position: relative;
+            top: -20px;
+            left: -40%;
+            background: #000;
+            border: 1px solid #000;
+            z-index: 9999;
+            height: 100vh;
+            width: 55%;
+        }
+        .nav.responsive a.icon {
+            position: absolute;
+            top: 20px;
+            right: -72%;
+        }
+        .nav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+        .man {
+            width: 100%;
+            height: 35%;
+            bottom: 45vh;
+        }
+        .text {
+            font-size: 20px;
+            width: 90%;
+            top: 10%;
+        }
     }
 `  
 let Section1 = styled.div`
+    @import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap&subset=cyrillic');
     width: 100%;
     height: 100vh;
     text-align: center;
@@ -109,11 +139,11 @@ let Section1 = styled.div`
             height: 100vh;
             flex-basis: 25%;
             transition: all 0.2s;
-            div {
+            span {
                 background: rgba(0,0,0,0.5);
                 color: white;
                 font-size: 34px;
-                font-family: 'Rock Salt', cursive;
+                font-family: 'Bad Script', cursive;
                 width: 100%;
                 height: 100%;
                 display: flex;
@@ -137,12 +167,35 @@ let Section1 = styled.div`
             background: url(./img/course2.jpg) no-repeat center top / cover;            
         }
     }
+    @media (max-width: 670px) {
+        .card {
+            height: 100vh;
+            flex-flow: column;
+            .img {
+                width: 100%;
+                :hover {
+                    flex-grow: 30%;
+                }
+            }
+        }
+    }
 `
   
 class Landing extends Component {
     state = { 
 
      };
+
+    sidebar = (e) => {
+        e.preventDefault();
+        let x = document.getElementById("nav");
+        if(x.className === "nav") {
+            x.className += " responsive";
+        }
+        else {
+            x.className = "nav"
+        }
+    }
     
     render() {
         return (
@@ -150,11 +203,11 @@ class Landing extends Component {
                 <HeaderBar>
                     <div className="topnav">
                         <span>_meCourse</span>
-                        <div className="nav">
+                        <div className="nav" id="nav">
                             <a href="/login">Login</a>
                             <a href="/register">Register</a>
                             <a href="/courses">Courses</a>
-                            <a className="icon" href="#">&#9776;</a>
+                            <a onClick={(e) => this.sidebar(e)} id="menu" className="icon" href="#">&#9776;</a>
                         </div>
                     </div>
                     <div className="text">All Courses in the same place! :)</div>
@@ -163,10 +216,10 @@ class Landing extends Component {
                 <Section1>
                     <h1>About Us</h1>
                     <div className="card">
-                        <div className="img first"><div>Запишись</div></div>
-                        <div className="img second"><div>на пробный урок</div></div>
-                        <div className="img third"><div>не выходя</div></div>
-                        <div className="img fourth"><div>из дома!</div></div>
+                        <div className="img first"><span>Запишись</span></div>
+                        <div className="img second"><span>на пробный урок</span></div>
+                        <div className="img third"><span>не выходя</span></div>
+                        <div className="img fourth"><span>из дома!</span></div>
                     </div>
                 </Section1>
             </>
