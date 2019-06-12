@@ -4,7 +4,11 @@ const CourseSchema = mongoose.Schema({
     first_name: String,
     last_name: String,
     phone: String,
-    time: String
+    time: String,
+    course: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }
 }, {
     timestamps: true
 });

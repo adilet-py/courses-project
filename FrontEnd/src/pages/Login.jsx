@@ -17,7 +17,19 @@ let LoginForm = styled.div`
     text-align: center;
     width: 60%;
     background: rgba(0,0,0,0.8);
-    color: #00aeef;
+    color: #fff;
+    @media (max-width: 670px) {
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding-top: 140px;
+        .links {
+            font-size: 15px;
+            a {
+                display: block;
+            }
+        }
+    }
     h2 {
         font-size: 60px;
         font-family: "Rock Salt", cursive;
@@ -43,8 +55,10 @@ let LoginForm = styled.div`
     .submit {
         height: 35px;
         margin-bottom: 15px;
-        border: none;   
-        background: #00aeef;
+        border: none; 
+        border-radius: 25px;  
+        background: #fff;
+        color: #000;
         font-size: 15px;
         font-family: 'Rock Salt', cursive;
         cursor: pointer;
@@ -53,7 +67,7 @@ let LoginForm = styled.div`
         margin-bottom: 20px;
         a {
             text-decoration: none;
-            color: #00aeef;
+            color: grey;
             text-decoration: underline;
         }
     }
@@ -65,7 +79,7 @@ class Login extends Component {
         password: '',
         err: false
     };
-    
+
     bind = (field, e) => {
         this.setState({
             [field]: e.target.value

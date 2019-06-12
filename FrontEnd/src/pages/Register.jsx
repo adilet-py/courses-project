@@ -12,12 +12,24 @@ let Background = styled.div`
     background: url(./img/back.jpg) no-repeat center top / cover;
 `
 let RegisterForm = styled.div`
-    @import url('https://fonts.googleapis.com/css?family=Akronim');
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
     text-align: center;
     width: 60%;
     background: rgba(0,0,0,0.8);
-    color: #00aeef;
+    color: #fff;
+    @media (max-width: 670px) {
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding-top: 140px;
+        .links {
+            font-size: 15px;
+            a {
+                display: block;
+            }
+        }
+    }
     h2 {
         font-size: 60px;
         font-family: "Rock Salt", cursive;
@@ -43,9 +55,11 @@ let RegisterForm = styled.div`
     .submit {
         height: 35px;
         margin-bottom: 15px;
-        border: none;
-        font-size: 20px;
-        background: #00aeef;
+        border: none;  
+        border-radius: 25px; 
+        background: #fff;
+        color: #000;
+        font-size: 15px;
         font-family: 'Rock Salt', cursive;
         cursor: pointer;
     }
@@ -53,7 +67,7 @@ let RegisterForm = styled.div`
         margin-bottom: 20px;
         a {
             text-decoration: none;
-            color: #00aeef;
+            color: grey;
             text-decoration: underline;
         }
     }
@@ -66,7 +80,7 @@ class Register extends Component {
         password: '',
         err: false
     };
-   
+
     bind = (field, e) => {
         this.setState({
             [field]: e.target.value
@@ -111,10 +125,6 @@ class Register extends Component {
                         <div>
                             <p>Password:</p>
                             <input type="password" className="forms" onChange={(e) => {this.bind('password', e)}} value={this.state.password} required/>
-                        </div>
-                        <div>
-                            <p>Confirm your password:</p>
-                            <input type="password" className="forms" value={this.state.password} required/>
                         </div>
                         <div>
                             <input type="submit" className="submit" value="Sign Up"/>

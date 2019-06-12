@@ -19,6 +19,7 @@ exports.create = (req, res) => {
         last_name: req.body.last_name,
         phone: req.body.phone,
         time: req.body.time,
+        course: req.body.course
     });
 
     user.save().then(data => {
