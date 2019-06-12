@@ -94,7 +94,6 @@ class Register extends Component {
                 email: this.state.email,
                 password: this.state.password
             });
-            ls.set('accessToken', response.data.token);
             this.setState({
                 err: false
             });
