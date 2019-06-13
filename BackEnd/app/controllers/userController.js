@@ -18,6 +18,7 @@ exports.create = (req, res) => {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         phone: req.body.phone,
+        date: req.body.date,
         time: req.body.time,
         course: req.body.course
     });

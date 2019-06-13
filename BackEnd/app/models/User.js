@@ -4,6 +4,7 @@ const CourseSchema = mongoose.Schema({
     first_name: String,
     last_name: String,
     phone: String,
+    date: String,
     time: String,
     course: {
         type: mongoose.Schema.Types.ObjectId,

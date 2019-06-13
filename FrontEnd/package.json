@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "local-storage": "2.0.0",
+    "moment": "^2.24.0",
     "react": "^16.6.3",
     "react-d3-tree": "^1.12.2",
     "react-dom": "^16.6.3",

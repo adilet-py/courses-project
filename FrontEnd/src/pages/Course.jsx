@@ -37,6 +37,7 @@ let Container = styled.div`
         margin-top: 20px;
     }
     a {
+        font-family: 'Rock Salt', cursive;
         text-decoration: none;
         color: #000;
     }

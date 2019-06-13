@@ -80,6 +80,12 @@ class Login extends Component {
         err: false
     };
 
+    componentWillMount(){
+        if(ls.get('accessToken')){
+            window.location.href = '/company/coursename';
+        }
+    }
+
     bind = (field, e) => {
         this.setState({
             [field]: e.target.value

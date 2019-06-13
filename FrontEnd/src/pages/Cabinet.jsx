@@ -44,7 +44,8 @@ let Questions = styled.div`
         border: none;
         font-size: 20px;
         background: grey;
-        font-family: 'Rock-Salt',cursive;
+        font-family: 'Rock Salt',cursive;
+        font-size: 15px;
         cursor: pointer;
         height: 38px;
         margin: 15px 0 15px 0;

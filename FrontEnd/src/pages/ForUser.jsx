@@ -3,6 +3,7 @@ import styled from "styled-components";
 import api from "../config/api";
 import ls from "local-storage";
 import Select from "react-select";
+let moment = require('moment');
 
 let Background = styled.div`
     width: 100%;
@@ -21,11 +22,12 @@ let Container = styled.div`
     padding: 20px;
     background: rgba(0,0,0,0.8);
     color: #fff;
+    overflow: scroll;
     h2 {
         font-size: 40px;
         font-family: "Rock Salt", cursive;
         text-align: center;
-        margin: 0 auto 40px;
+        margin: 0 auto 10px;
     }
     p {
         font-size: 18px;
@@ -82,6 +84,7 @@ class ForUser extends Component {
         first_name: '',
         last_name: '',
         phone: '',
+        date: '',
         time: ''
     }
 
@@ -104,6 +107,7 @@ class ForUser extends Component {
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 phone: this.state.phone,
+                date: this.state.date,
                 time: this.state.time,
                 course: this.props.match.params.id
             });
@@ -119,6 +123,7 @@ class ForUser extends Component {
     };
 
     render() {
+        let { date } = this.state;
         let times = [
             { value: '9:00', label: '9:00' },
             { value: '10:00', label: '10:00' },
@@ -149,6 +154,10 @@ class ForUser extends Component {
                         <div className="form-div">
                             <p>Phone:</p>
                             <input type="text" className="forms" onChange={(e) => {this.bind('phone', e)}} required/>
+                        </div>
+                        <div className="form-div">
+                            <p>Date of Birth</p>
+                            <input type="date" className="forms" onChange={(e) => this.bind('date', e)} name="date" value={moment(date).isValid && moment(date).format("YYYY-MM-DD") } />
                         </div>
                         <div className="form-div">
                             <p>Time:</p>
