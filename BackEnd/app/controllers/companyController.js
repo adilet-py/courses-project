@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Company = require('../models/Company');
 const Course = require('../models/Course');
-const async = require('async');
+// const async = require('async');
 const crypto = require('crypto');
 const path = require('path');
 const hbs = require('nodemailer-express-handlebars');

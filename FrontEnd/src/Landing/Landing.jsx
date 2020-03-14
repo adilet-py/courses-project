@@ -204,9 +204,9 @@ class Landing extends Component {
                     <div className="topnav">
                         <span>_meCourse</span>
                         <div className="nav" id="nav">
-                            <a href="/login">Login</a>
-                            <a href="/register">Register</a>
-                            <a href="/courses">Courses</a>
+                            <a href="/company/login">Login</a>
+                            <a href="/company/register">Register</a>
+                            <a href="/user/courses">Courses</a>
                             <a onClick={(e) => this.sidebar(e)} id="menu" className="icon" href="#">&#9776;</a>
                         </div>
                     </div>
